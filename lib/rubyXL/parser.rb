@@ -55,7 +55,7 @@ module RubyXL
           unless node.css('r').empty?
             text = node.css('r t').children.to_a.join
             node.children.remove
-            node << "<t xml:space=\"preserve\">#{text}</t>"
+            # node << "<t xml:space=\"preserve\">#{text}</t>"
           end
         end
 

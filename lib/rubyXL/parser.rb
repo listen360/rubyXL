@@ -55,7 +55,10 @@ module RubyXL
           unless node.css('r').empty?
             text = node.css('r t').children.to_a.join
             node.children.remove
-            # node << "<t xml:space=\"preserve\">#{text}</t>"
+            new_node = Nokogiri::XML::Node.new("t", node)
+            new_node.content = text
+            new_node['xml:space'] = 'preserve'
+            node << new_node
           end
         end
 
